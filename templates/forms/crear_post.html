@@ -1,0 +1,31 @@
+{% extends 'comun/base.html' %}
+
+
+{% block contenidoQueCambia %}
+
+
+
+{% if lista_post == 0 %}
+<h2>No hay nada que mostrar</h2>
+
+{% else %}
+<h2>upss</h2>
+
+<ul>
+    {%for posteo in lista_posts_categoria %}
+    <li>
+        <h3>{{ posteo.titulo }}</h3>
+    </li>
+    <li>
+        <h4>{{ posteo.subtitlo }}</h4>
+    </li>
+    <li>
+        <h5>Escrito por: {{ posteo.autor }} en {{ posteo.fecha }} </h5>
+    </li>
+
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+{% endblock contenidoQueCambia %}

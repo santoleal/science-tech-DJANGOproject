@@ -1,0 +1,17 @@
+{% extends 'comun/base.html' %}
+
+
+{% block contenidoQueCambia %}
+
+<h2>Vista en detalle de usuario:</h2>
+<ul>
+    <li><h3>Nombre: {{ usuario.name }}</h3></li>
+    <li><h4>Apellido: {{ usuario.lastname }}</h4></li>
+    <li><h4>Nombre Usuario: {{ usuario.username }} </h4></li>
+    <li><h4>Edad: {{ usuario.edad }} </h4></li>
+    <li><h4>Rol: {{ usuario.rol }} </h4></li>
+    <li><h4>Avatar: {{ usuario.avatar }} </h4></li>
+</ul>
+
+
+{% endblock contenidoQueCambia %}
