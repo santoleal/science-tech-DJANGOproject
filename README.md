@@ -18,3 +18,7 @@
 ### Video explicativo:
 
 ### Casos de prueba:
+
+### Gif:
+
+[![(GIF con muestra de navegación)](https://github.com/santoleal/science-tech-DJANGOproject/blob/main/muestra_navegacion_blog.gif "Muestra de navegación en blo django (GIF)")]
