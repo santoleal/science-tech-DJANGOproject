@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+
+{% block contenidoQueCambia %}
+
+<h2>Sistema de logueo:</h2>
+
+{% if Login %}
+<p>Vamos bien.</p>
+<p>{{ mensaje }}</p>
+
+{% elif Registro %}
+<p>Vamos bien. Usuario creado con éxito. </p>
+<p>{{ mensaje }}</p>
+
+{% elif Edicion %}
+<p>Vamos bien con la edición... </p>
+<p>{{ mensaje }}</p>
+
+{% else %}
+<p>Estamos mal.</p>
+<p>{{ mensaje }}</p>
+
+{% endif%}
+
+{% endblock contenidoQueCambia %}

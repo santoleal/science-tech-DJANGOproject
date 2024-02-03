@@ -1,21 +1,25 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from django.utils import timezone
 
 # Create your models here.
 
 
 class Post(models.Model):
-    titulo = models.CharField(max_length=200)
-    suttitulo = models.CharField(max_length=200)
-    fecha = models.DateField()
+    titulo = models.CharField(max_length=90)
+    extracto = models.TextField(max_length=150)
+    fecha = models.DateTimeField(default=timezone.now)
     autor = models.ForeignKey(
         "auth.User",
         on_delete = models.CASCADE,
     )
     cuerpo = models.TextField()
-    etiquetas = models.ManyToManyField('Etiqueta')
-    categorias = models.ManyToManyField('Categoria')
+    categoria = models.ForeignKey('Categoria', on_delete=models.CASCADE)
+    principal = models.BooleanField(default=False)
+    secundarias = models.BooleanField(default=False)
+    # etiquetas = models.ManyToManyField('Etiqueta')
+    # imagen_destacada = models.ImageField(upload_to='imagen_destacada', null=True, blank=True)
     #imagen = 
 
     def __str__(self):
@@ -34,7 +38,8 @@ class Post(models.Model):
 
 
 class Categoria(models.Model):
-    nombre = models.CharField(max_length=100)
+    nombre = models.CharField(max_length=50)
+    # descripcion = models.CharField(max_length=100)
 
     def __str__(self):
         return self.nombre
@@ -48,34 +53,35 @@ class Categoria(models.Model):
 
     
 
-class Etiqueta(models.Model):
-    nombre = models.CharField(max_length=100)
+# class Etiqueta(models.Model):
+#     nombre = models.CharField(max_length=50)
+#     descripcion = models.CharField(max_length=100)
     
-    def __str__(self):
-        return self.nombre
+#     def __str__(self):
+#         return self.nombre
 
-    def get_absolute_url(self):
-        return reverse("etiqueta_detail", kwargs={"pk": self.pk})
+#     def get_absolute_url(self):
+#         return reverse("etiqueta_detail", kwargs={"pk": self.pk})
     
-    class Meta():
-        verbose_name = "Etiqueta"
-        verbose_name_plural = "Etiquetas"
+#     class Meta():
+#         verbose_name = "Etiqueta"
+#         verbose_name_plural = "Etiquetas"
     
 
 
-class Comentario(models.Model):
-    post = models.ForeignKey(Post, on_delete = models.CASCADE, related_name='comentarioss')
-    autor = models.ForeignKey(User, on_delete=models.CASCADE)
-    titulo = models.CharField(max_length=50)
-    cuerpo = models.CharField(max_length=300)
-    fecha = models.DateField()
+# class Comentario(models.Model):
+#     post = models.ForeignKey(Post, on_delete = models.CASCADE, related_name='comentarioss')
+#     autor = models.ForeignKey(User, on_delete=models.CASCADE)
+#     titulo = models.CharField(max_length=50)
+#     cuerpo = models.CharField(max_length=300)
+#     fecha = models.DateField()
 
-    def __str__(self):
-        return f"Comentado por {self.autor} en {self.post}"
+#     def __str__(self):
+#         return f"Comentado por {self.autor} en {self.post}"
     
-    def get_absolute_url(self):
-        return reverse("comentarios_detail", kwargs={"pk": self.pk})
+#     def get_absolute_url(self):
+#         return reverse("comentarios_detail", kwargs={"pk": self.pk})
     
-    class Meta():
-        verbose_name = "Comentario"
-        verbose_name_plural = "Comentarios"
+#     class Meta():
+#         verbose_name = "Comentario"
+#         verbose_name_plural = "Comentarios"

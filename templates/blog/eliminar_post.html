@@ -1,0 +1,15 @@
+{% extends 'base/base.html' %}
+
+{% block contenidoQueCambia %}
+
+<h2>Eliminar Post:</h2>
+
+    <form action=" {% url 'eliminarPost' post.id %} " method="post"> {% csrf_token %}
+
+        <h4>¿Seguro de eliminar este post?</h4>
+
+        <button type="submit">Confirmar</button>
+        <button><a href="{% url 'listaPosts' %}">No, no quiero eliminarlo</a></button></a>
+    </form>
+
+{% endblock contenidoQueCambia %}

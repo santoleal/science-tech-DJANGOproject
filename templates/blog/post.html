@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+
+<!-- BLOG -->
+
+{% block contenidoQueCambia %}
+
+  <div class="row g-5">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        Reporte desde el reino {{ post.categoria }}
+      </h3>
+
+      <article class="blog-post">
+        <header>
+          <h2 class="display-5 link-body-emphasis mb-1"> {{ post.titulo }} </h2>
+          <p class="blog-post-meta">Autor: {{ post.autor}}. Fecha de Publicación: {{ post.fecha|date:"SHORT_DATE_FORMAT" }}.</p>
+        </header>
+        <div><h4>{{ post.extracto }}</h4></div>
+        <hr>
+        <div>
+    
+
+          {{ post.cuerpo }}
+        </div>
+      
+      </article>
+      {% include 'components/pagination.html' %}
+
+    </div>
+    {% include 'components/sidebar.html' %}
+  </div>
+
+
+  {% endblock contenidoQueCambia %}

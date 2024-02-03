@@ -1,4 +1,4 @@
-{% extends 'comun/base.html' %}
+{% extends 'base/base.html' %}
 
 {% block contenidoQueCambia %}
 
@@ -9,11 +9,11 @@
     <li> {{ usuario }} </li>
 
     <div style="display: flex;column-gap: 5px;">
-        <form action=" {% url 'eliminarUsuario' usuario.id  %} " method="post"> {% csrf_token %}
-            <button type="submit">Eliminar</button>
-        </form>
         <button>
-            <a href=" {% url 'editarUsuario' usuario.id %} ">Editar</a>
+            <a href="{% url 'eliminarUsuario' usuario.id  %}">Eliminar</a>
+        </button>
+        <button>
+            <a href="{% url 'editarUsuario' usuario.id %}">Editar</a>
         </button>
     </div>     
     {% endfor %}

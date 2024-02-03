@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block contenidoQueCambia %}
+
+<h2>Registro de usuario:</h2>
+
+    <form action=" {% url 'Registro' %} " method="post"> {% csrf_token %}
+
+        {{ miFormulario.as_p }}
+
+        <button type="submit">Registrar</button>
+
+    </form>
+
+
+{% endblock contenidoQueCambia %}

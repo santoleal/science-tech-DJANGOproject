@@ -2,9 +2,9 @@
 
 {% block contenidoQueCambia %}
 
-<h1>Crear usuario:</h1>
+<h1>Crear Post:</h1>
 
-    <form action=" {% url 'crearUsuario'  %} " method="post"> {% csrf_token %}
+    <form action=" {% url 'crearPost'  %} " method="post"> {% csrf_token %}
 
         {{ form.as_p}}
 

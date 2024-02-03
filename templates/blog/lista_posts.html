@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block contenidoQueCambia %}
+
+<h2>Lista de Post:</h2>
+
+<ul>
+    {%for post in posts %}
+    <li><h2><a href="{% url 'detallePost' post.id %}">{{ post.titulo }}</a></h2></li>
+
+
+    {% if user.is_authenticated %}
+    <div style="display: flex;column-gap: 5px;">
+        <button>
+            <a href="{% url 'eliminarPost' post.id  %}">Eliminar</a>
+        </button>
+        <button>
+            <a href="{% url 'actualizarPost' post.id %}">Editar</a>
+        </button>
+    </div>     
+    {% endif %}
+    {% endfor %}
+</ul>
+
+
+{% endblock contenidoQueCambia %}

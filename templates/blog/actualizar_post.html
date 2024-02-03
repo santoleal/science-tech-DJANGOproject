@@ -2,9 +2,9 @@
 
 {% block contenidoQueCambia %}
 
-<h2>Actualizar usuario:</h2>
+<h2>Actualizar Post:</h2>
 
-    <form action=" {% url 'actualizarUsuario' usuario.id %} " method="post"> {% csrf_token %}
+    <form action=" {% url 'actualizarPost' post.id %} " method="post"> {% csrf_token %}
 
         {{ form.as_p}}
 

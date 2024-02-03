@@ -1,10 +1,10 @@
-{% extends 'comun/base.html' %}
+{% extends 'base/base.html' %}
 
 {% block contenidoQueCambia %}
 
 <h2>Eliminar usuario:</h2>
 
-    <form action=" {% url 'eliminarUsuario'  %} " method="post"> {% csrf_token %}
+    <form action=" {% url 'eliminarUsuario' usuario.id %} " method="post"> {% csrf_token %}
 
         <h4>¿Seguro de eliminar este usuario</h4>
 

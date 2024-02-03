@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block contenidoQueCambia %}
+
+<h2>Ingresar:</h2>
+
+    <form action=" {% url 'Login' %} " method="post"> {% csrf_token %}
+
+        {{ miFormulario.as_p}}
+
+        <button type="submit">Iniciar sesión</button>
+
+    </form>
+
+
+{% endblock contenidoQueCambia %}

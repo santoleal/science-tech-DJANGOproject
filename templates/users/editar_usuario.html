@@ -1,0 +1,16 @@
+{% extends 'base/base.html' %}
+
+{% block contenidoQueCambia %}
+
+<h2>Editar usuario {{usuario}} :</h2>
+
+    <form action=" " method="post"> {% csrf_token %}
+<table>    
+    {{ miFormulario.as_table}}
+</table>
+
+        <button type="submit">Confirmar edición</button>
+
+    </form>
+
+{% endblock contenidoQueCambia %}

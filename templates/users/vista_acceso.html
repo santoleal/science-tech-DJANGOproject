@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+
+{% block contenidoQueCambia %}
+
+
+<header class="col-12 text-center">
+<h2 class="text-body-emphasis text-decoration-none">Sé parte activa de esta comunidad de difusión:</h2>
+</header>
+
+<div class="vista_acceso">   
+
+
+    <div class="flex-item text-center">
+        <p>Accede con tus credenciales: </p>
+
+        <a class="btn btn-sm btn-outline-secondary" href=" {% url 'Login' %}">Iniciar sesión</a>
+
+    </div>
+
+    <div class="flex-item text-center">
+        <p>Si no estás registrado, hazlo aquí: </p>
+
+        <a class="btn btn-sm btn-outline-secondary" href=" {% url 'Registro' %}">¡Regístrate!</a>
+
+        
+    </div>         
+</div>
+  
+
+
+{% endblock contenidoQueCambia %}
